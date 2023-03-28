@@ -33,6 +33,7 @@ let userdb = new sqlite3.Database(process.env.DB_SOURCE, (err) => {
                 userdb.run(insert, ["user2", "user2@test.com", bcrypt.hashSync("user2", salt), salt, Date('now')])
                 userdb.run(insert, ["user3", "user3@test.com", bcrypt.hashSync("user3", salt), salt, Date('now')])
                 userdb.run(insert, ["user4", "user4@test.com", bcrypt.hashSync("user4", salt), salt, Date('now')])
+                console.log('Done!')
             }
         });  
     }
