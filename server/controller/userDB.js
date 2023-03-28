@@ -24,8 +24,10 @@ let userdb = new sqlite3.Database(process.env.DB_SOURCE, (err) => {
         (err) => {
             if (err) {
                 // Table already created and exist
+                console.log('Table already created and exist')
             } else{
                 // We need to create a table with adding some records
+                console.log('Table does NOT exist... INSERT INTO Users.....')
                 var insert = 'INSERT INTO Users (Username, Email, Password, Salt, DateCreated) VALUES (?,?,?,?,?)'
                 userdb.run(insert, ["user1", "user1@test.com", bcrypt.hashSync("user1", salt), salt, Date('now')])
                 userdb.run(insert, ["user2", "user2@test.com", bcrypt.hashSync("user2", salt), salt, Date('now')])
