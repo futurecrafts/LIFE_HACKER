@@ -2,6 +2,18 @@ var sqlite3 = require('sqlite3').verbose();
 var bcrypt = require('bcrypt');
 require("dotenv").config();
 
+const fs = require('fs');
+const path = require('path');
+
+const dir = path.resolve(path.join(__dirname, '../db'));
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir);
+  console.log(dir);
+  console.log('db folder created.');
+} else {
+    console.log('db folder already exist.');
+}
+
 let userdb = new sqlite3.Database(process.env.DB_SOURCE, (err) => {
     if (err) {
       console.error(err.message) // in case of cannot open database
@@ -30,9 +42,9 @@ let userdb = new sqlite3.Database(process.env.DB_SOURCE, (err) => {
                 console.log('Table does NOT exist... INSERT INTO Users.....')
                 var insert = 'INSERT INTO Users (Username, Email, Password, Salt, DateCreated) VALUES (?,?,?,?,?)'
                 userdb.run(insert, ["user1", "user1@test.com", bcrypt.hashSync("user1", salt), salt, Date('now')])
-                userdb.run(insert, ["user2", "user2@test.com", bcrypt.hashSync("user2", salt), salt, Date('now')])
-                userdb.run(insert, ["user3", "user3@test.com", bcrypt.hashSync("user3", salt), salt, Date('now')])
-                userdb.run(insert, ["user4", "user4@test.com", bcrypt.hashSync("user4", salt), salt, Date('now')])
+                //userdb.run(insert, ["user2", "user2@test.com", bcrypt.hashSync("user2", salt), salt, Date('now')])
+                //userdb.run(insert, ["user3", "user3@test.com", bcrypt.hashSync("user3", salt), salt, Date('now')])
+                //userdb.run(insert, ["user4", "user4@test.com", bcrypt.hashSync("user4", salt), salt, Date('now')])
                 console.log('Done!')
             }
         });  
