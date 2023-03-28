@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default axios.create(
     {
-        baseURL: 'http://localhost:7778',
+        baseURL: 'https://ms-chat.onrender.com',
         withCredentials: true
     }
 );
