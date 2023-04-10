@@ -30,11 +30,11 @@ export default function Cards() {
                     </a>
                 </MDBRipple>
                 <MDBCardBody>
-                    <MDBCardTitle>Chat</MDBCardTitle>
+                    <MDBCardTitle>TextToImage</MDBCardTitle>
                     <MDBCardText>
-                    You can ask anything with this Chat bot.
+                    You can Text to Image.
                     </MDBCardText>
-                    <MDBBtn href='/api/chat'>Start Chat</MDBBtn>
+                    <MDBBtn href='/api/texttoimage'>Generate Image</MDBBtn>
                 </MDBCardBody>
                 </MDBCard>
             </MDBCol>
@@ -47,11 +47,11 @@ export default function Cards() {
                     </a>
                     </MDBRipple>
                     <MDBCardBody>
-                    <MDBCardTitle>Chat</MDBCardTitle>
+                    <MDBCardTitle>AI Image</MDBCardTitle>
                     <MDBCardText>
-                        You can ask anything with this Chat bot.
+                        You can generate AI Image.
                     </MDBCardText>
-                    <MDBBtn href='/api/chat'>Start Chat</MDBBtn>
+                    <MDBBtn href='/api/aiimage'>Generate Image</MDBBtn>
                     </MDBCardBody>
                 </MDBCard>
             </MDBCol>

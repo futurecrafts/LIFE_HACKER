@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "../utils/axios_chat"
 import Container from 'react-bootstrap/Container';
 import "../css/Chat.css"
-import send from '../img/send.svg';
-import bot from '../img/bot.svg';
-import user from '../img/user.svg';
+import { send, bot, user } from '../assets'
 
 let loadInterval;
 

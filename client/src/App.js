@@ -2,12 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, createPath, Route, Routes } from "react-router-dom";
 import axios from "./utils/axios"
 import './App.css';
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
-import Chat from "./pages/Chat";
-import TextToImage from "./pages/TextToImage";
+import { Home, Login, Register, Dashboard, Chat, TextToImage, AI_Image } from './pages';
 import PrivateRoute from "./utils/privateRoute";
 import PublicRoute from "./utils/publicRoute";
 
@@ -49,6 +44,7 @@ function App() {
             <Route path="/api/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}></Route>
             <Route path="/api/chat" element={<PrivateRoute><Chat /></PrivateRoute>}></Route>
             <Route path="/api/texttoimage" element={<PrivateRoute><TextToImage /></PrivateRoute>}></Route>
+            <Route path="/api/aiimage" element={<PrivateRoute><AI_Image /></PrivateRoute>}></Route>
           </Routes>
         </div>
       </BrowserRouter>
