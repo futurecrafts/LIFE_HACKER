@@ -1,7 +1,8 @@
-import React from "react";
+import { Suspense } from "react";
 import styled from "styled-components";
-import Button from "../components/styled/Button";
 import { useNavigate } from "react-router";
+import { Canvas } from '@react-three/fiber'
+import { Space } from "../components/space";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -14,97 +15,84 @@ export default function Home() {
   }
 
     return (
-        <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
-          <div className='d-flex justify-content-center align-items-center h-100'>
-            <MainContainer>
-                <WelcomeText>Welcome</WelcomeText>
-                <ButtonContainer>
-                <Button onClick={HandleSignIn} content="Sign In" />
-                </ButtonContainer>
-                <HorizontalRule />
-                <LoginWith>OR SIGN UP WITH</LoginWith>
-                <ButtonContainer>
-                <Button onClick={HandleSignUp} content="Sign Up" />
-                </ButtonContainer>
-            </MainContainer>
-          </div>
-        </div>
+      <>
+        <TopSectionContainer>
+        <Logo>WELCOME</Logo>
+        <Slogan>To Infinity and Beyond!</Slogan>
+        <Paragraph>
+          Hey Howdy Hey, would you look at that!
+          DisneyEnchants is hosting a singing
+          competition! Hey Buzz, could you come up
+          here and give me a hand!
+        </Paragraph>
+        <div><Button onClick={HandleSignIn}>Sign In</Button><Button onClick={HandleSignUp}>Sign Up</Button></div>
+        </TopSectionContainer>
+        <Canvas>
+          <Suspense fallback={null}>
+            <Space />
+          </Suspense>
+        </Canvas>
+      </>
     );
 
   }
 
-  const MainContainer = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 80vh;
-    width: 30vw;
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(8.5px);
-    -webkit-backdrop-filter: blur(8.5px);
-    border-radius: 10px;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 0.4rem;
-    @media only screen and (max-width: 320px) {
-      width: 80vw;
-      height: 90vh;
-      hr {
-        margin-bottom: 0.3rem;
-      }
-      h4 {
-        font-size: small;
-      }
-    }
-    @media only screen and (min-width: 360px) {
-      width: 80vw;
-      height: 90vh;
-      h4 {
-        font-size: small;
-      }
-    }
-    @media only screen and (min-width: 411px) {
-      width: 80vw;
-      height: 90vh;
-    }
-    @media only screen and (min-width: 768px) {
-      width: 80vw;
-      height: 80vh;
-    }
-    @media only screen and (min-width: 1024px) {
-      width: 70vw;
-      height: 50vh;
-    }
-    @media only screen and (min-width: 1280px) {
-      width: 30vw;
-      height: 80vh;
-    }
-`;
-
-const WelcomeText = styled.h2`
-  margin: 3rem 0 2rem 0;
-`;
-
-const ButtonContainer = styled.div`
-  margin: 1rem 0 2rem 0;
+  const TopSectionContainer = styled.div`
+  position: absolute;
   width: 100%;
+  // height: 100%;
+  top: 150px;
+  left: 0;
+  // background-color: #1756dd32;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  z-index: 99;
 `;
 
-const LoginWith = styled.h5`
-  cursor: pointer;
+const Logo = styled.h1`
+  margin: 0;
+  color: #fff;
+  font-weight: 800;
+  font-size: 80px;
 `;
 
-const HorizontalRule = styled.hr`
-  width: 90%;
-  height: 0.3rem;
-  border-radius: 0.8rem;
+const Slogan = styled.h4`
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 30px;
+  margin-top: 10px;
+`;
+
+const Paragraph = styled.p`
+  margin: 0;
+  margin-top: 3em;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  max-width: 30%;
+  text-align: center;
+`;
+
+const Button = styled.button`
+  outline: none;
   border: none;
-  background: linear-gradient(to right, #14163c 0%, #03217b 79%);
-  background-color: #ebd0d0;
-  margin: 1.5rem 0 1rem 0;
-  backdrop-filter: blur(25px);
+  background-color: #337ded56;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 8px 2em;
+  margin-top: 3em;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 350ms ease-in-out;
+  margin-left: 10px;
+
+  &:hover {
+    background-color: transparent;
+    border: 2px solid #27b927;
+  }
 `;

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, Suspense } from "react";
 import { useNavigate } from "react-router";
 import axios from '../utils/axios';
 
@@ -7,6 +7,8 @@ import Button from "../components/styled/Button";
 import Icon from "../components/styled/Icon";
 import Input from "../components/styled/Input"; 
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import { Canvas } from '@react-three/fiber'
+import { Earth } from "../components/earth";
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -53,10 +55,11 @@ export default function Login() {
     }
     
     return (
+      <>
       <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
           <div className='d-flex justify-content-center align-items-center h-100'>
             <MainContainer>
-                <WelcomeText>Welcome to Sign In</WelcomeText>
+                <WelcomeText>Sign In</WelcomeText>
                 <InputContainer>
                 <Input type="email" value={email} id="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
                 <Input type="password" value={pass} id="password" onChange={(e) => setPass(e.target.value)} placeholder="Password" />
@@ -65,7 +68,7 @@ export default function Login() {
                 <Button onClick={handleSubmit} content="Sign In" />
                 </ButtonContainer>
                 <HorizontalRule />
-                <LoginWith>OR SIGN UP WITH</LoginWith>
+                <LoginWith>OR</LoginWith>
                 <ButtonContainer>
                 <Button onClick={HandleSignUp} content="Sign Up" />
                 </ButtonContainer>
@@ -84,6 +87,12 @@ export default function Login() {
             </MainContainer>
           </div>
         </div>
+        <Canvas>
+        <Suspense fallback={null}>
+          <Earth />
+        </Suspense>
+        </Canvas>
+      </>
     );
 }
 
@@ -102,12 +111,13 @@ const MainContainer = styled.div`
   width: 30vw;
   background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(8.5px);
-  -webkit-backdrop-filter: blur(8.5px);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.4rem;
+  z-index: 99;
   @media only screen and (max-width: 320px) {
     width: 80vw;
     height: 90vh;
@@ -144,7 +154,7 @@ const MainContainer = styled.div`
 `;
 
 const WelcomeText = styled.h2`
-  margin: 3rem 0 2rem 0;
+  margin: 3rem 0 1rem 0;
 `;
 
 const InputContainer = styled.div`
@@ -157,7 +167,7 @@ const InputContainer = styled.div`
 `;
 
 const ButtonContainer = styled.div`
-  margin: 1rem 0 2rem 0;
+  margin: 1rem 0 1rem 0;
   width: 100%;
   display: flex;
   align-items: center;
