@@ -18,11 +18,9 @@ export function Earth(props) {
   const earthRef = useRef();
   const cloudsRef = useRef();
 
-  useFrame(({ clock }) => {
-    const elapsedTime = clock.getElapsedTime();
-
-    earthRef.current.rotation.y = elapsedTime / 6;
-    cloudsRef.current.rotation.y = elapsedTime / 6;
+  useFrame((_, delta) => {
+    earthRef.current.rotation.y += 0.2 * delta;
+    cloudsRef.current.rotation.y += 0.2 * delta;
   });
 
   return (
