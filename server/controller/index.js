@@ -1,5 +1,4 @@
 //const auth = require("./TokenChecker");
-const userdb = require("./userDB");
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt');
 require("dotenv").config();

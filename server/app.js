@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors')
 const cookieParser = require("cookie-parser");
+const connectDB = require('./mongodb/connect');
 const { register, login, accessToken, refreshToken, logout, allUsers, singleUser } = require("./controller");
 require("dotenv").config();
 
@@ -33,4 +34,13 @@ app.get("/api/user/:id", singleUser);
 //app.post("/api/check", check);
 // this should be done for periodic check of token is still valid. if failed, should reset/clean token (localstorage)
 
-app.listen(process.env.PORT, () => console.log(`API listening on port ${process.env.PORT}!`));
+const startServer = async () => {
+    try {
+      connectDB(process.env.MONGODB_URL);
+      app.listen(process.env.PORT, () => console.log(`API listening on port ${process.env.PORT}!`));
+    } catch (error) {
+      console.log(error);
+    }
+};
+
+startServer();
