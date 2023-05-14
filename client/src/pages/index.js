@@ -5,6 +5,8 @@ import Dashboard from "./Dashboard";
 import Chat from "./Chat";
 import TextToImage from "./TextToImage";
 import AI_Image from "./AI_Image";
+import ThreeSkyBox from "./ThreeSkyBox";
+import ThreeSkyBoxPortal from "./ThreeSkyBoxPortal";
 
 export {
     Home,
@@ -13,5 +15,7 @@ export {
     Dashboard,
     Chat,
     TextToImage,
-    AI_Image
+    AI_Image,
+    ThreeSkyBox,
+    ThreeSkyBoxPortal
 }

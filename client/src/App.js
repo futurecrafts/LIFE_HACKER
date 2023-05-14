@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, createPath, Route, Routes } from "react-router-dom";
 import axios from "./utils/axios"
 import './App.css';
-import { Home, Login, Register, Dashboard, Chat, TextToImage, AI_Image } from './pages';
+import { Home, Login, Register, Dashboard, Chat, TextToImage, AI_Image, ThreeSkyBox, ThreeSkyBoxPortal } from './pages';
 import PrivateRoute from "./utils/privateRoute";
 import PublicRoute from "./utils/publicRoute";
 
@@ -45,6 +45,8 @@ function App() {
             <Route path="/api/chat" element={<PrivateRoute><Chat /></PrivateRoute>}></Route>
             <Route path="/api/texttoimage" element={<PrivateRoute><TextToImage /></PrivateRoute>}></Route>
             <Route path="/api/aiimage" element={<PrivateRoute><AI_Image /></PrivateRoute>}></Route>
+            <Route path="/api/skybox" element={<PrivateRoute><ThreeSkyBox /></PrivateRoute>}></Route>
+            <Route path="/api/skyboxportal" element={<PrivateRoute><ThreeSkyBoxPortal /></PrivateRoute>}></Route>
           </Routes>
         </div>
       </BrowserRouter>

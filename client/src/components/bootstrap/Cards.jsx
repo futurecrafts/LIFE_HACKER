@@ -64,11 +64,28 @@ export default function Cards() {
                     </a>
                     </MDBRipple>
                     <MDBCardBody>
-                    <MDBCardTitle>Chat</MDBCardTitle>
+                    <MDBCardTitle>3D Space</MDBCardTitle>
                     <MDBCardText>
-                        You can ask anything with this Chat bot.
+                        You can explorer how 3d space looks like.
                     </MDBCardText>
-                    <MDBBtn href='/api/chat'>Start Chat</MDBBtn>
+                    <MDBBtn href='/api/skybox'>Enter 3D Space</MDBBtn>
+                    </MDBCardBody>
+                </MDBCard>
+            </MDBCol>
+            <MDBCol>
+                <MDBCard>
+                    <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
+                    <MDBCardImage src='https://mdbootstrap.com/img/new/standard/nature/111.webp' fluid alt='...' />
+                    <a>
+                        <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
+                    </a>
+                    </MDBRipple>
+                    <MDBCardBody>
+                    <MDBCardTitle>3D Space Portal</MDBCardTitle>
+                    <MDBCardText>
+                        You can explorer how 3d space looks like with Portal.
+                    </MDBCardText>
+                    <MDBBtn href='/api/skyboxportal'>Enter 3D Space Portal</MDBBtn>
                     </MDBCardBody>
                 </MDBCard>
             </MDBCol>
